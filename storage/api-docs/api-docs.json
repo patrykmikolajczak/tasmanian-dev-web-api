@@ -1,0 +1,90 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "TasManian Dev",
+        "description": "Task Management For Developers",
+        "contact": {
+            "name": "Dev 12Makers",
+            "url": "https://12makers.pl",
+            "email": "patryk.mikolajczak@12makers.pl"
+        },
+        "license": {
+            "name": "Apache 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+        },
+        "version": "0.0.1"
+    },
+    "servers": [
+        {
+            "url": "{schema}://{host}",
+            "description": "OpenApi parameters",
+            "variables": {
+                "schema": {
+                    "enum": [
+                        "https",
+                        "http"
+                    ],
+                    "default": "http"
+                },
+                "host": {
+                    "default": "127.0.0.1:8000"
+                }
+            }
+        }
+    ],
+    "paths": {
+        "/api/": {
+            "get": {
+                "tags": [
+                    "Init"
+                ],
+                "summary": "",
+                "description": "",
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "headers": {
+            "test-header": {
+                "description": "test description",
+                "schema": {
+                    "type": "string",
+                    "example": "10"
+                }
+            }
+        },
+        "securitySchemes": {
+            "passport": {
+                "type": "oauth2",
+                "description": "Laravel passport oauth2 security.",
+                "in": "header",
+                "scheme": "http",
+                "flows": {
+                    "password": {
+                        "authorizationUrl": "http:\\\\127.0.0.1:8000/oauth/authorize",
+                        "tokenUrl": "http:\\\\127.0.0.1:8000/oauth/token",
+                        "refreshUrl": "http:\\\\127.0.0.1:8000/token/refresh",
+                        "scopes": []
+                    }
+                }
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "Init",
+            "description": "Firs endpoint - test swagger"
+        }
+    ],
+    "security": [
+        []
+    ]
+}
